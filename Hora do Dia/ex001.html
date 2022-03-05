@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora do Dia</title>
+    <link rel="stylesheet" href="ex001.css" type="text/css" >
+</head>
+<body onload="carregar()">
+    <header>
+        <h1>Hora do Dia</h1>
+    </header>
+    <section>
+        <div id="msg">
+            Aqui vai a hora...
+        </div>
+        <div id="foto">
+            <img id="imagem" src="img/manha_cut.png" alt="amanhecer">
+        </div>
+    </section>
+    <script>
+        function checkTime(i) {
+            if(i<10) {
+                i = "0"+i
+            }
+            return i
+        }
+        function carregar() {
+            var msg = window.document.querySelector('div#msg')
+            var img = window.document.querySelector('img#imagem')
+            var data = new Date()
+            var hora = data.getHours()
+            var m = data.getMinutes()
+            var s = data.getSeconds()
+            min = checkTime(m)
+            sec = checkTime(s)
+            msg.innerHTML = `Agora é exatamente <strong>${hora}:${min}:${sec}</strong><p id="aceno"></p>`
+            if(hora>00 && hora<=12) {
+                document.querySelector('p#aceno').innerHTML = 'Tenha um Bom Dia!'
+                img.src = 'img/manha_cut.png'
+                document.body.style.backgroundColor = '#fedda7'
+            } else if(hora>12 && hora<=18) {
+                document.querySelector('p#aceno').innerHTML = 'Tenha uma Boa Tarde!'
+                img.src = 'img/tarde_cut.png'
+                document.body.style.backgroundColor = '#ef775f'
+            } else {
+                document.querySelector('p#aceno').innerHTML = 'Tenha uma Boa Noite!'
+                img.src = 'img/noite_cut.png'
+                document.body.style.backgroundColor = '#3f5e70'
+            }
+            setTimeout(function() {
+                carregar()
+            }, 500)
+        }
+    </script>
+</body>
+<footer>
+    <h6>&copy; Cidmar - DEV</h6>
+</footer>
+</html>

@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(70, 142, 236);
+    font: normal 15pt Arial;
+    text-align: center;
+}
+header {
+    color: white;
+}
+section {
+    background: white;
+    margin: auto;
+    padding: 15px;
+    border-radius: 8px;
+    width: 500px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.363);
+}
+footer {
+    padding: 20px;
+    margin: auto;
+    font: italic 9pt;
+    color: white;
+}
+input#first, input#last, input {
+    border-radius: 5px;
+}
+div#entradas {
+    padding-right: 130px;
+    text-align: right;
+}
+div#res {
+    text-align: left;
+}

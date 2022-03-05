@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <link rel="stylesheet" href="ex003.css">
+</head>
+<body>
+    <header><h1>CONTADOR</h1></header>
+    <section>
+        <div id="entradas">
+            <p>
+                Início:
+                <input type="number" id="first">
+            </p>
+            <p>
+                Fim:
+                <input type="number" id="last">
+            </p>
+            <p>
+                Passo:
+                <input type="number" id="passo">
+            </p>
+            <p>
+                <input type="button" value="CONTAR" onclick="verify()" id="verificar">
+            </p>
+        </div>
+        <div id="res">
+            <p id="resp1">
+                Esperando entradas para iniciar a contagem...
+            </p>
+            <p id="resp2">
+
+            </p>
+        </div>
+    </section>
+    <script>
+        let bot = document.querySelector('input#verificar')
+
+        bot.onclick = function verify() {
+            var res = document.querySelector('div#res')
+            var resp1 = document.querySelector('p#resp1')
+            var resp2 = document.querySelector('p#resp2')
+            var passo = document.querySelector('input#passo').value
+            var first = document.querySelector('input#first').value
+            var last = document.querySelector('input#last').value
+            //var f = Number(first.value)
+            //var l = Number(last.value)
+            //var p = Number(passo.value)
+            var f = parseInt(first)
+            var l = parseInt(last)
+            var p = parseInt(passo)
+
+            function erropasso() {
+                alert('Erro na contagem!!!')
+            }
+
+            //CONSOLES PARA TESTE
+            console.log(first)
+            console.log(last)
+            console.log(passo)
+
+            if(last>first && passo>0) {
+                resp1.innerHTML = 'Contagem realizada com sucesso!'
+                resp2.innerHTML = ''
+
+                for(cont=f; cont<=l; cont = parseInt(cont) + p) {
+                    resp2.innerHTML = resp2.innerHTML + cont
+                    console.log(cont)
+                    if(cont<last) {
+                        resp2.innerHTML = resp2.innerHTML + '&#128073'
+                        stop
+                    }
+                }
+                resp2.innerHTML = resp2.innerHTML + '🏴'
+            } else if(last<first && passo>0) {
+                resp1.innerHTML = 'Contagem realizada com sucesso!'
+                resp2.innerHTML = ''
+
+                for(cont=f; cont>=l; cont = parseInt(cont) - p) {
+                    resp2.innerHTML = resp2.innerHTML + cont
+                    if(cont>last) {
+                        resp2.innerHTML = resp2.innerHTML + '&#128073'
+                        stop
+                    }
+                }
+                resp2.innerHTML = resp2.innerHTML + '🏴'
+            } else if(first=='' || last=='') {
+                alert('Informações incompletas. Impossível contar.')
+            } else if(passo==0 || passo=='') {
+                alert('Passo inválido! Considerando passo igual à 1.')
+                document.querySelector('input#passo').value = 1
+                verify()
+            }
+            
+        }
+    </script>
+</body>
+<footer>
+    <h6>&copy; Cidmar - DEV</h6>
+</footer>
+</html>

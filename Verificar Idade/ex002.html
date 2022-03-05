@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de Exercício</title>
+    <link rel="stylesheet" href="ex002.css" type="text/css" >
+</head>
+<body>
+    <header>
+        <h1>Verificador de Idade</h1>
+    </header>
+    <section>
+        <div id="info">
+            <p>
+                Ano de nascimento: 
+                <input type="number" name="txtano" id="txtano" min="0">
+            </p>
+            <p>
+                Sexo: 
+                <input type="radio" name="sex" id="homem" checked>
+                <label for="mas">Masculino</label>
+                <input type="radio" name="sex" id="mulher">
+                <label for="fem">Feminino</label>
+            </p>
+            <p>
+                <input type="button" value="Verificar" id="ver" onclick="verify()">
+            </p>
+        </div>
+        <div id="res">
+            <p>Preencha os dados acima para obter um resultado!!</p>
+        </div>
+    </section>
+    <script>
+        var bot = document.querySelector('input#ver')
+
+        bot.onclick = function verify() {
+            const data = new Date()
+            const anoatual = data.getFullYear()
+            var ano = document.querySelector('input#txtano').value
+            var age = anoatual-ano
+            var homem = document.querySelector('input#homem')
+            var mulher = document.querySelector('input#mulher')
+            var res = document.querySelector('div#res')
+            limitemin = anoatual-150
+            
+
+            console.log(ano)
+            console.log(age)
+            console.log(res.value)
+            
+            if(ano<limitemin || ano>anoatual) {
+                res.innerHTML = 'Por favor preencha uma data válida!!!'
+                img.parentNode.removeChild(img)
+            } else {
+                var p = document.createElement('p')
+                var img = document.createElement('img')
+                img.setAttribute('id', 'imagem')
+                if(homem.checked) {
+                    if (age > 0 && age <=7) {
+                        img.setAttribute('src', 'img/h_crianca.png')
+                    } else if (age <=21) {
+                        img.setAttribute('src', 'img/h_jovem.png')
+                    } else if (age <=55) {
+                        img.setAttribute('src', 'img/h_adulto.png')
+                    } else {
+                        img.setAttribute('src', 'img/h_idoso.png')
+                    }
+                } else if (mulher.checked) {
+                    if (age > 0 && age <=7) {
+                        img.setAttribute('src', 'img/m_crianca.png')
+                    } else if (age <=25) {
+                        img.setAttribute('src', 'img/m_jovem.png')
+                    } else if (age <=50) {
+                        img.setAttribute('src', 'img/m_adulto.png')
+                    } else {
+                        img.setAttribute('src', 'img/m_idoso.png')
+                    }
+                }
+            }
+            document.querySelector('input#txtano').value = ''
+            res.innerHTML = `Idade Calculada: ${age}`
+            res.style.textAlign = 'center'
+            img.style.textAlign = 'center'
+            res.appendChild(p)
+            p.appendChild(img)
+        }
+    </script>
+</body>
+<footer>
+    <h6>&copy; Cidmar - DEV</h6>
+</footer>
+</html>

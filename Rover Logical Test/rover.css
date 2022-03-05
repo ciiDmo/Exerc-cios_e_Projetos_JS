@@ -1,0 +1,78 @@
+body {
+    background-color: rgb(76, 166, 226);
+}
+
+.roof {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+.floor {
+    color: beige;
+    font-size: 12px bold;
+    text-align: center;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+.container {
+    background-color: aliceblue;
+    justify-content: center;
+    border-radius: 12px;
+    max-width: 600px;
+    display: flex;
+    margin: auto;
+    margin-top: 2em;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container span {
+    font-size: 20px;
+    word-wrap: normal;
+    inline-size: 500px;
+    overflow-wrap: break-word;
+    margin: auto;
+    margin-top: 1em;
+    text-align: center;
+}
+
+.infoPlateau {
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-top: 1em;
+}
+
+.infoPlateau input {   
+    margin-bottom: 1em;
+}
+
+.infoPlateau label {
+    padding-inline: 3em;
+}
+
+.send {
+    margin-bottom: 1em;
+}
+
+.infoMoves {
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-top: 1em;
+}
+
+.infoMoves input {
+    margin-bottom: 1em;
+}
+
+.MyClass {
+    color: white;
+    background-color: rgba(74, 156, 250, 0.747);
+    border-radius: 12px;
+    padding-inline: 15px;
+    margin-bottom: 20px;
+}

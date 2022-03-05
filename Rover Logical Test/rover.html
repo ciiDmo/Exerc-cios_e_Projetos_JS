@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="rover.css">
+</head>
+<body>
+    <header class="roof">
+        <h1>Teste de Lógica</h1>
+    </header>
+    <div class="container">
+        <div>Insira os valores do tamanho do platô:</div>
+        <div class="infoPlateau">
+            <label>Coordenadas "X"</label>            
+            <label>Coordenadas "Y"</label>
+        </div>
+        <div class="infoPlateau">
+            <input type="text" id="coordX"/>            
+            <input type="text" id="coordY"/>
+        </div>
+        <div>Insira os valores da posição do Rover:</div>
+        <div class="infoPlateau">            
+            <label>Posição "X"</label>
+            <label>Posição "Y"</label>            
+            <label>Posição Cardial</label>
+        </div>
+        <div class="infoPlateau">
+            <input type="text" id="coordXRover"/>              
+            <input type="text" id="coordYRover"/>             
+            <input type="text" id="coordCardial"/>
+        </div>
+        <div class="infoMoves">Insira os movimentos sequenciais para o rover (L, R ou M):</div>
+        <div class="infoMoves">           
+            <input type="text" class="moves" id="move"/>
+        </div>
+        <div class="send"><input type="button" value="Send" onClick=sendInfo() /></div>
+        <div id="result"></div>
+    </div>
+    <footer class="floor">Cidmar Oliveira - 2022</footer>
+</body>
+<script src="rover.js"></script>
+</html>
